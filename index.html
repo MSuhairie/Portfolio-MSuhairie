@@ -13,6 +13,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .btn-row {
+      display: flex;
+      gap: 10px; /* Jarak antar tombol */
+    }
+
+    .form-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-row a {
+      text-decoration: none;
+    }
+
+    /* Responsive untuk HP */
+    @media (max-width: 768px) {
+      .btn-row {
+        flex-direction: column; /* Tombol menumpuk ke bawah */
+        width: 100%; /* Baris penuh */
+      }
+
+      .btn-row a {
+        width: 100%; /* Link bungkus tombol full width */
+      }
+
+      .form-btn {
+        width: 100%; /* Tombol full width */
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -142,7 +174,7 @@
           <h2 class="h2 article-title">About me</h2>
         </header>
 
-        <section class="about-text" style="margin-bottom: 105px;">
+        <section class="about-text" style="margin-bottom: 10px;">
           <p align="justify">
             I am a Web Programmer who graduated with a Bachelor's degree in Information Systems and has a high interest and
             commitment in the world of technology, especially web-based application development. I have experience in
@@ -156,19 +188,21 @@
             development.
           </p>
 
-          <a href="assets/file/CV M. SUHAIRIE.pdf"  target='_blank'>
-            <button class="form-btn" style="float: left;">
-              <ion-icon name="download-outline"></ion-icon>
-              <span>Download CV</span>
-            </button>
-          </a>
+          <div class="btn-row">
+            <a href="assets/file/CV M. SUHAIRIE.pdf" target="_blank">
+              <button class="form-btn">
+                <ion-icon name="download-outline"></ion-icon>
+                <span>Download CV</span>
+              </button>
+            </a>
 
-          <a href="https://drive.google.com/file/d/1PB0Svb5DgeXR3pb4NyIFUrTp0EsjWmNu/view?usp=sharing"  target='_blank'>
-            <button class="form-btn" style="float: left; margin-left: 10px;">
-              <ion-icon name="download-outline"></ion-icon>
-              <span>Download My Portofolio</span>
-            </button>
-          </a>
+            <a href="https://drive.google.com/file/d/1PB0Svb5DgeXR3pb4NyIFUrTp0EsjWmNu/view?usp=sharing" target="_blank">
+              <button class="form-btn">
+                <ion-icon name="document-outline"></ion-icon>
+                <span>My Portofolio</span>
+              </button>
+            </a>
+          </div>
         </section>
 
         <section class="service">
