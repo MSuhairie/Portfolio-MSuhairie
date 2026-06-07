@@ -146,8 +146,27 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body {
+  background-color: #0f0f0f;
+  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-size: 24px 24px;
+  position: relative;
+}
 
+/* Spotlight layer */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(245, 197, 24, 0.08),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.1s ease;
+}
 
 
 
@@ -1833,7 +1852,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     text-align: center;
   }
 
-  .info-content .title { margin: auto; }
+  .info-content .title { margin: 0; }
 
   .info_more-btn { display: none; }
 
@@ -1870,4 +1889,589 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/* Modal Overlay */
+.project-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.80);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.project-modal-overlay.active {
+  display: flex;
+}
+
+/* Modal Box */
+.project-modal-box {
+  background: #1e1e2e;
+  border-radius: 20px;
+  max-width: 720px;
+  width: 92%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  animation: modalIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { transform: scale(0.8) translateY(30px); opacity: 0; }
+  to   { transform: scale(1)   translateY(0);    opacity: 1; }
+}
+
+/* ── CLOSE BUTTON (pojok kanan atas, di luar box) ── */
+.project-modal-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: #2a2a3e;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.project-modal-close:hover {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ── SLIDESHOW ── */
+.modal-slideshow {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #111;
+}
+
+.modal-slideshow .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.modal-slideshow .slide.active {
+  opacity: 1;
+}
+
+.modal-slideshow .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tombol prev/next */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.slide-btn:hover { background: rgba(255,255,255,0.25); }
+.slide-btn.prev  { left: 12px; }
+.slide-btn.next  { right: 12px; }
+
+/* Dot indicator */
+.slide-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.slide-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+/* Info */
+.project-modal-info {
+  padding: 22px 26px 28px;
+}
+
+.project-modal-info h3 {
+  color: #fff;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.modal-category-tag {
+  display: inline-block;
+  color: #f5c518;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  background: rgba(245,197,24,0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(245,197,24,0.3);
+}
+
+.project-modal-info p.modal-desc {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE MODAL ── */
+
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+  .project-modal-box {
+    width: 95%;
+    border-radius: 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-slideshow {
+    height: 220px;
+  }
+
+  .project-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    /* Pindah ke dalam box supaya tidak terpotong */
+    position: absolute;
+  }
+
+  .project-modal-info {
+    padding: 16px 18px 22px;
+  }
+
+  .project-modal-info h3 {
+    font-size: 1rem;
+  }
+
+  .modal-category-tag {
+    font-size: 0.72rem;
+  }
+
+  .project-modal-info p.modal-desc {
+    font-size: 0.85rem;
+  }
+
+  .slide-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile kecil (max 480px) */
+@media (max-width: 480px) {
+  .project-modal-overlay {
+    align-items: flex-end; /* Modal muncul dari bawah seperti bottom sheet */
+  }
+
+  .project-modal-box {
+    width: 100%;
+    border-radius: 20px 20px 0 0; /* Rounded atas saja */
+    max-height: 88vh;
+    overflow-y: auto;
+    animation: modalUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Animasi slide dari bawah untuk mobile */
+  @keyframes modalUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  .modal-slideshow {
+    height: 200px;
+  }
+
+  .project-modal-close {
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .project-modal-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .project-modal-info {
+    padding: 14px 16px 24px;
+  }
+
+  /* Drag indicator bar (opsional, biar keliatan kayak bottom sheet) */
+  .project-modal-box::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
+}
+
+/* Sembunyikan cursor default */
+* { cursor: none !important; }
+
+/* Titik kecil di tengah */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #f5c518;
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+
+/* Lingkaran luar yang ngikut dengan delay */
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(245, 197, 24, 0.6);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+
+/* Efek hover di atas elemen yang bisa diklik */
+.cursor-dot.hovered {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+}
+
+.cursor-ring.hovered {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(245, 197, 24, 0.9);
+  background: rgba(245, 197, 24, 0.05);
+}
+
+/* ── LOADING SCREEN ── */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-wrapper.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Konten tengah */
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Logo bulat */
+.loader-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  animation: logoPulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(245, 197, 24, 0.4);
+}
+
+.loader-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 30px rgba(245,197,24,0.4); }
+  50%       { transform: scale(1.08); box-shadow: 0 0 50px rgba(245,197,24,0.7); }
+}
+
+/* Nama */
+.loader-name {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+/* Jabatan */
+.loader-title {
+  color: #f5c518;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Progress bar */
+.loader-bar-wrap {
+  width: 220px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #f5c518, #fff8dc);
+  border-radius: 10px;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 10px rgba(245,197,24,0.6);
+}
+
+/* Persentase */
+.loader-percent {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+/* Dot dekorasi */
+.loader-content::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,197,24,0.1);
+  animation: ringExpand 2s ease-in-out infinite;
+}
+
+@keyframes ringExpand {
+  0%   { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ── FIX TYPING EFFECT SPACING ── */
+.info-content .title {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  width: max-content !important;
+}
+
+.info-content .title #typingText {
+  display: inline;
+  min-width: 10px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: #f5c518;
+  animation: blink 0.7s step-end infinite;
+  margin-left: 2px;
+  line-height: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Particles di dalam loader */
+#loader-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Pastikan loader-content di atas particles */
+.loader-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dot pattern di loader */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: #0f0f0f;
+  background-image: radial-gradient(circle, #2a2a2a 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 80px;
+  height: 90px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.marquee-item:hover {
+  background: rgba(245, 197, 24, 0.08);
+  border-color: rgba(245, 197, 24, 0.3);
+  transform: translateY(-5px);
+}
+
+.marquee-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.marquee-item:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.15);
+}
+
+.marquee-item span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.marquee-item:hover span {
+  color: #f5c518;
+}
+
+/* Light mode */
+body.light-mode .marquee-item {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .marquee-item span {
+  color: #666;
+}
+
+body.light-mode .marquee-item:hover span {
+  color: #e6a800;
 }

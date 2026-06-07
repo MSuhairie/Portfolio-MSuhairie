@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <style>
     .btn-row {
       display: flex;
@@ -48,15 +51,42 @@
 </head>
 
 <body>
+  <!-- Loading Screen -->
+  <div class="loader-wrapper" id="loaderWrapper">
+    <div id="loader-particles"></div>
+    <div class="loader-content">
+      
+      <!-- Logo / Inisial -->
+      <div class="loader-logo">
+        <img src="./assets/images/coding-logo.png" alt="Logo">
+      </div>
+      
+      <!-- Nama -->
+      <div class="loader-name">M. SUHAIRIE</div>
+      
+      <!-- Jabatan -->
+      <div class="loader-title">Fullstack Developer</div>
+      
+      <!-- Progress Bar -->
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      
+      <!-- Persentase -->
+      <div class="loader-percent" id="loaderPercent">0%</div>
+
+    </div>
+  </div>
   <main>
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
-          <img src="./assets/images/Frame 5.jpg" alt="M. Suhairie" width="80" style="border-radius: 20%;">
+          <img src="./assets/images/Frame6.png" alt="M. Suhairie" width="80" style="border-radius: 20%;">
         </figure>
         <div class="info-content">
-          <h1 class="name" title="M. Suhairie">M. Suhairie</h1>
-          <p class="title">S1 - Information Systems</p>
+          <h1 class="name" title="M. Suhairie">M. SUHAIRIE</h1>
+          <!-- <p class="title">Fullstack Developer</p> -->
+           <p class="title"><span id="typingText"></span><span class="typing-cursor">|</span></p>
         </div>
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
@@ -176,16 +206,7 @@
 
         <section class="about-text" style="margin-bottom: 10px;">
           <p align="justify">
-            I am a Web Programmer who graduated with a Bachelor's degree in Information Systems and has a high interest and
-            commitment in the world of technology, especially web-based application development. I have experience in
-            building systems from frontend to backend, using technologies such as PHP, Laravel, JavaScript, jQuery, HTML, CSS,
-            and MySQL and PostgreSQL databases. I am used to working in teams and individually, using tools such as Git,
-            Postman, and VS Code to support the development process. In every project, I always try to create a system that is
-            not only functional, but also efficient, user-friendly, and easy to maintain. I also enjoy learning new things, keeping
-            up with technological developments, and being open to receiving input to improve the quality of work. For me,
-            building digital solutions is not just about writing code, but also understanding user needs and providing the best
-            solutions. I am open to collaboration, freelance projects, and professional job opportunities in the field of web
-            development.
+            IT professional with experience in full-stack web development, data processing, and dashboard reporting. Proficient in PHP, Laravel, Golang, Java Spring Boot, JavaScript, AngularJS, Vue.js, MySQL, PostgreSQL, Power BI, and Looker Studio. Strong analytical, problem-solving, and teamwork skills with a commitment to continuous learning and delivering efficient, user-friendly solutions.
           </p>
 
           <div class="btn-row">
@@ -345,86 +366,89 @@
 
         <!-- clients -->
         <section class="clients">
-          <h3 class="h3 clients-title">Language and Tools</h3>
-          <ul class="clients-list has-scrollbar">
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/php.png" title="PHP" style="width: 60%;">
-              </a>
-            </li>
+          <h3 class="h3 clients-title">Language And Tools</h3>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/laravel.png" title="Laravel">
-              </a>
-            </li>
+          <div class="marquee-wrapper">
+            <div class="marquee-track">
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/codeigniter.png" title="Codeigniter">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/php.png" alt="PHP">
+                <span>PHP</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/js.png" title="Javascript">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/laravel.png" alt="Laravel">
+                <span>Laravel</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/angular.png" title="Angular">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/golang.png" alt="Golang">
+                <span>Golang</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/typescript.png" title="Typescript">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/spring.png" alt="Spring Boot">
+                <span>Spring Boot</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/mysql.png" title="MySQL" style="width: 70%; margin: -15px 0px 0px -25px;">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/codeigniter.png" alt="CodeIgniter">
+                <span>CodeIgniter</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/postgresql.png" title="PostgreSQL" style="width: 90%; margin: 15px 0px 0px -30px;">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/js.png" alt="JavaScript">
+                <span>JavaScript</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/flutter.png" title="Flutter">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/angular.png" alt="AngularJS">
+                <span>AngularJS</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/react.png" title="React Js">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/typescript.png" alt="TypeScript">
+                <span>TypeScript</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/boostrap.png" title="Bootstrap" style="width: 62%;">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/mysql.png" alt="MySQL">
+                <span>MySQL</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/tailwindcss.png" title="Tailwind CSS">
-              </a>
-            </li>
+              <div class="marquee-item">
+                <img src="./assets/images/postgresql.png" alt="PostgreSQL">
+                <span>PostgreSQL</span>
+              </div>
 
-            <li class="clients-item">
-              <a>
-                <img src="./assets/images/postman.png" title="Postman">
-              </a>
-            </li>
-          </ul>
+              <div class="marquee-item">
+                <img src="./assets/images/flutter.png" alt="Flutter">
+                <span>Flutter</span>
+              </div>
+
+              <div class="marquee-item">
+                <img src="./assets/images/react.png" alt="React JS">
+                <span>React JS</span>
+              </div>
+
+              <div class="marquee-item">
+                <img src="./assets/images/boostrap.png" alt="Bootstrap">
+                <span>Bootstrap</span>
+              </div>
+
+              <div class="marquee-item">
+                <img src="./assets/images/tailwindcss.png" alt="Tailwind CSS">
+                <span>Tailwind CSS</span>
+              </div>
+
+              <div class="marquee-item">
+                <img src="./assets/images/postman.png" alt="Postman">
+                <span>Postman</span>
+              </div>
+
+            </div>
+          </div>
+
         </section>
 
       </article>
@@ -473,7 +497,7 @@
           <ol class="timeline-list">
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">PT. Jasamedika Saranatama (Contract) <font color="grey">- Padang, Indonesia</font></h4>
-              <span>Apr 2024 - Now</span>
+              <span>Apr 2024 - Mar 2026</span>
               <p class="timeline-text">Position : Analyst Programmer</p>
             </li>
             <li class="timeline-item">
@@ -520,7 +544,7 @@
               <h4 class="h4 timeline-item-title">UKM-IT Cybernetix <font color="grey">- Universitas Putra Indonesia Yptk Padang, Indonesia</font></h4>
               <span>Nov 2019 — Jun 2022</span>
               <h4 style="color: white;">Staff Infokom</h4>
-              <p class="timeline-text" align="justify">
+              <!-- <p class="timeline-text" align="justify">
                 • Coordinate and implement the preparation of activity programs<br>
                 • Design and compile official letters and event activity proposals<br>
                 • Monitor and evaluate the implementation of activity programs<br>
@@ -529,7 +553,7 @@
                 implementation of activities and events.<br>
                 • Collaborate with the team in the development and resolution of technical problems to ensure smooth IT
                 operations in the organization's environment.
-              </p>
+              </p> -->
             </li>
           </ol>
         </section>
@@ -637,6 +661,76 @@
           <ul class="skills-list content-card">
             <li class="skills-item">
               <div class="title-wrapper">
+                <h5 class="h5">Backend : PHP (Native, CodeIgniter, Laravel), Node Js, TypeScript, Java (Spring Boot), Golang (Gin Framework)</h5>
+                <data value="99">99%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 99%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Frontend : Angular JS, Vue JS, Bootstrap, Tailwind CSS, AJAX</h5>
+                <data value="95">95%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 95%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Database : MySQL and PostgreSQL, Query SQL, Database Design, relationships between tables</h5>
+                <data value="50">100%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">API & Authentication : RESTful API, JWT (JSON Web Token), Postman</h5>
+                <data value="50">100%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Version Control & Collaboration : Git, GitHub, GitLab</h5>
+                <data value="50">100%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Supporting Tools : Postman, Visual Studio Code, Power BI dan Looker Studio</h5>
+                <data value="50">100%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">DevOps & Deployment : Docker, cPanel, FTP, VPS Deployment, Shared Hosting</h5>
+                <data value="50">100%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 100%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
                 <h5 class="h5">Microsoft Office : Word, Excel, PowerPoint</h5>
                 <data value="80">100%</data>
               </div>
@@ -648,27 +742,7 @@
             <li class="skills-item">
               <div class="title-wrapper">
                 <h5 class="h5">Design & UI/UX : CorelDRAW X7, Figma, Canva</h5>
-                <data value="70">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Programming Languages : PHP (Native, CodeIgniter, Laravel), JavaScript, TypeScript</h5>
-                <data value="90">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Frontend : Bootstrap, Tailwind CSS, Angular, AJAX</h5>
-                <data value="50">90%</data>
+                <data value="70">90%</data>
               </div>
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 90%;"></div>
@@ -677,8 +751,8 @@
 
             <li class="skills-item">
               <div class="title-wrapper">
-                <h5 class="h5">Database : MySQL and PostgreSQL, understanding the concept of SQL queries and relationships between tables</h5>
-                <data value="50">95%</data>
+                <h5 class="h5">Networking & Infrastructure: Installation, configuration, and troubleshooting of LAN and Wi-Fi networks, including basic cabling and network device management.</h5>
+                <data value="70">90%</data>
               </div>
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 90%;"></div>
@@ -687,38 +761,8 @@
 
             <li class="skills-item">
               <div class="title-wrapper">
-                <h5 class="h5">API: Integration and use of RESTful APIs using JavaScript/AJAX or tools such as Postman</h5>
-                <data value="50">95%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Version Control & Collaboration : Git, GitHub, GitLab</h5>
-                <data value="50">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Supporting Tools : Postman, Visual Studio Code</h5>
-                <data value="50">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Hosting & Deployment : Managing hosting servers using cPanel, FTP, and basic understanding of deploying to VPS or shared hosting</h5>
-                <data value="50">90%</data>
+                <h5 class="h5">Hardware & IT Support: Computer and printer troubleshooting, operating system reinstallation, and hardware maintenance to ensure seamless daily business operations.</h5>
+                <data value="70">90%</data>
               </div>
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 90%;"></div>
@@ -774,12 +818,16 @@
           </div>
 
           <ul class="project-list">
-            <li class="project-item  active" data-filter-item data-category="php native">
+            <li class="project-item active" data-filter-item data-category="php native"
+              data-title="Website BPVP Padang Kemnaker (PHP Native dan Bootstrap)"
+              data-category-label="PHP Native"
+              data-imgs="./assets/images/2.PNG,./assets/images/2b.PNG,./assets/images/2c.PNG"
+              data-desc="Website resmi BPVP Padang Kemnaker yang dibangun menggunakan PHP Native dan Bootstrap.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
+                  <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  </div>
                   <img src="./assets/images/2.PNG" alt="finance" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website BPVP Padang Kemnaker (PHP Native dan Bootstrap).</h3>
@@ -787,12 +835,16 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="php native"
+              data-title="Website Hilirisasi-Riset Universitas Andalas (Laravel dan Tailwind)"
+              data-category-label="PHP (Laravel)"
+              data-imgs="./assets/images/1.PNG,./assets/images/2b.PNG,./assets/images/2c.PNG"
+              data-desc="Website resmi Hilirisasi-Riset Universitas Andalas yang dibangun menggunakan Laravel dan Tailwind.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
+                  <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  </div>
                   <img src="./assets/images/1.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Hilirisasi-Riset Universitas Andalas (Laravel dan Tailwind)</h3>
@@ -800,12 +852,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Politeknik ATI Padang (Laravel dan Rest API)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/7.PNG"
+                data-desc="Website resmi Politeknik ATI Padang yang dibangun menggunakan Laravel dan Rest API.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/7.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Politeknik ATI Padang (Laravel dan Rest API)</h3>
@@ -813,12 +867,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Penilaian Siswa Universitas Negeri Padang (Laravel)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/6.PNG"
+                data-desc="Sistem penilaian siswa untuk Universitas Negeri Padang berbasis Laravel.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/6.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Penilaian Siswa Universitas Negeri Padang (Laravel)</h3>
@@ -826,12 +882,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Arsip dan Buku Tamu SMKN 2 Padang (Laravel)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/5.PNG"
+                data-desc="Sistem arsip digital dan buku tamu online untuk SMKN 2 Padang berbasis Laravel.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/5.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Arsip dan Buku Tamu SMKN 2 Padang (Laravel)</h3>
@@ -839,12 +897,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Fakultas Ekonomi Bisnis Islam UIN Imam Bonjol (Laravel dan Tailwind)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/3.PNG"
+                data-desc="Website resmi Fakultas Ekonomi Bisnis Islam UIN Imam Bonjol Padang menggunakan Laravel dan Tailwind CSS.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/3.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Falkutas Ekonomi Bisnis Islam Universitas Islam Negeri Imam Bonjol (Laravel dan Tailwind)</h3>
@@ -852,12 +912,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Dinas Pendidikan dan Kebudayaan Kabupaten Tanah Datar (Laravel dan Tailwind)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/4.PNG"
+                data-desc="Website resmi Dinas Pendidikan dan Kebudayaan Kabupaten Tanah Datar dibangun dengan Laravel dan Tailwind CSS.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/4.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Dinas Pendidikan dan Kebudayaan Kabupaten Tanah Datar (Laravel dan Tailwind)</h3>
@@ -865,12 +927,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website dan Aplikasi Android Tagihan Sales PT. Marijaya (Laravel dan Rest API)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/8.PNG"
+                data-desc="Sistem tagihan sales berbasis web dan Android untuk PT. Marijaya menggunakan Laravel dan Rest API.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/8.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website dan Aplikasi Android Tagihan Sales PT. Marijaya (Laravel dan Rest API)</h3>
@@ -878,12 +942,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="laravel">
+            <li class="project-item active" data-filter-item data-category="laravel"
+                data-title="Website Rental Mobil Online (Laravel dan Bootstrap)"
+                data-category-label="PHP (Laravel)"
+                data-imgs="./assets/images/Web Persewaan Mobil Page 3.PNG"
+                data-desc="Sistem rental mobil online berbasis web menggunakan Laravel dan Bootstrap.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/Web Persewaan Mobil Page 3.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Website Rental Mobil Online (Laravel dan Bootstrap)</h3>
@@ -891,12 +957,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="php native">
+            <li class="project-item active" data-filter-item data-category="php native"
+                data-title="Merancang Website Baznas Kota Padang (PHP Native dan Bootstrap)"
+                data-category-label="PHP Native"
+                data-imgs="./assets/images/Web Baznas Kota Padang.PNG"
+                data-desc="Website resmi Baznas Kota Padang dirancang menggunakan PHP Native dan Bootstrap.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/Web Baznas Kota Padang.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Merancang Website Baznas Kota Padang (PHP Native dan Bootstrap)</h3>
@@ -904,12 +972,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="php native">
+            <li class="project-item active" data-filter-item data-category="php native"
+                data-title="Merancang Website Praktek Dokter (PHP Native & AJAX)"
+                data-category-label="PHP Native"
+                data-imgs="./assets/images/Website Praktek Dokter.PNG"
+                data-desc="Sistem manajemen praktek dokter berbasis web menggunakan PHP Native dan AJAX.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/Website Praktek Dokter.PNG" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Merancang Website Praktek Dokter (PHP Native & AJAX)</h3>
@@ -917,12 +987,14 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="php native">
+            <li class="project-item active" data-filter-item data-category="php native"
+                data-title="Merancang Website Penjualan Obat untuk Apotek (PHP Native & AJAX)"
+                data-category-label="PHP Native"
+                data-imgs="./assets/images/Merancang Website Penjualan Obat untuk Apotek.jpg"
+                data-desc="Sistem penjualan obat untuk apotek berbasis web menggunakan PHP Native dan AJAX.">
               <a>
                 <figure class="project-img">
-                  <!-- <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div> -->
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                   <img src="./assets/images/Merancang Website Penjualan Obat untuk Apotek.jpg" alt="orizon" loading="lazy">
                 </figure>
                 <h3 class="project-title">Merancang Website Penjualan Obat untuk Apotek (PHP Native & AJAX)</h3>
@@ -1045,6 +1117,35 @@
     </div>
 
   </main>
+
+<!-- Project Modal -->
+<div class="project-modal-overlay" id="projectModal">
+  <div class="project-modal-box">
+
+    <!-- Close Button -->
+    <button class="project-modal-close" id="closeModal">&#10005;</button>
+
+    <!-- Slideshow -->
+    <div class="modal-slideshow" id="modalSlideshow">
+      <!-- Slides di-inject JS -->
+      <button class="slide-btn prev" id="slidePrev">&#8249;</button>
+      <button class="slide-btn next" id="slideNext">&#8250;</button>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+
+    <!-- Info -->
+    <div class="project-modal-info">
+      <h3 id="modalTitle"></h3>
+      <span class="modal-category-tag" id="modalCategory"></span>
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
 <script src="./assets/js/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
